@@ -43,7 +43,7 @@ const checkArray = (arr: string[]): boolean => {
  * @param arr
  * @returns {boolean}
  */
-const checkArrayExist = (arr: string | any[]) => {
+const checkArrayExist = (arr: string | Array<any>) => {
   return !!(arr && Array.isArray(arr) && arr.length)
 }
 /**
@@ -54,7 +54,12 @@ const checkArrayExist = (arr: string | any[]) => {
  * @param name
  * @return value: Tên
  */
-const getText = (arr: string | any[], value: string, keyName: string, name: string): string => {
+const getText = (
+  arr: string | Array<any>,
+  value: string,
+  keyName: string,
+  name: string
+): string => {
   if (checkArrayExist(arr) && value) {
     for (const arrElement of arr) {
       if (arrElement && arrElement[keyName] === value) {

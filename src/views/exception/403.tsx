@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Result } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
-const Exception404 = () => {
+const Exception403 = () => {
   const navigate = useNavigate()
 
   const handleNavigate = (url = '') => {
@@ -10,9 +10,9 @@ const Exception404 = () => {
   }
   return (
     <Result
-      status="404"
-      title="404"
-      subTitle="Sorry, the page you visited does not exist."
+      status="403"
+      title="403"
+      subTitle="Sorry, you are not authorized to access this page."
       extra={
         <Button
           type="primary"
@@ -27,4 +27,4 @@ const Exception404 = () => {
   )
 }
 
-export default Exception404
+export default Exception403
