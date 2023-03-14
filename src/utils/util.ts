@@ -137,6 +137,7 @@ const formatDay = (value: string, format: string) => {
   format = format ? format : dateFormat
   return dayjs(value).format(format)
 }
+const baseURL = process.env.REACT_APP_BASE_URL
 
 export {
   getTableRowIndex,
@@ -150,4 +151,5 @@ export {
   formatMoney,
   stripTags,
   formatDay,
+  baseURL,
 }
