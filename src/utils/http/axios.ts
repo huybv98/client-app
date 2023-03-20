@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse, AxiosInstance, InternalAxiosRequestConfig } from 'axios'
+import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import { baseURL } from 'utils/util'
 import { message } from 'antd'
 

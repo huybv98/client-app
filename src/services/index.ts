@@ -1,6 +1,6 @@
-import { baseService } from 'utils/http/axios';
-import { AxiosResponse } from 'axios';
-import { OptionsExecute } from 'types/optionsExecute';
+import { baseService } from 'utils/http/axios'
+import { AxiosResponse } from 'axios'
+import { OptionsExecute } from 'types/optionsExecute'
 
 export function execute<T>(
   url: string,
@@ -14,5 +14,5 @@ export function execute<T>(
     data: method === 'post' || method === 'put' || method === 'patch' ? params : undefined,
     params: method === 'get' || method === 'delete' ? params : undefined,
     ...configs,
-  });
+  })
 }

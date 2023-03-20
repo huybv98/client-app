@@ -1,21 +1,26 @@
 import type { RouteObject } from 'react-router-dom'
+import React from 'react'
 
-import BasicLayout from 'components/Layout/index'
-import Dashboard from 'views/dashboard/index'
+const AppLayout = React.lazy(() => import('components/AppLayout/index'))
+const Dashboard = React.lazy(() => import('views/dashboard/index'))
+const Candidate = React.lazy(() => import('views/candidate/Index'))
+const CandidateCreate = React.lazy(() => import('views/candidate/Create'))
+const CandidateDetail = React.lazy(() => import('views/candidate/Detail'))
+const CandidateEdit = React.lazy(() => import('views/candidate/Edit'))
 
-import AuthLayout from 'views/user/AuthLayout'
-import Login from 'views/user/Login'
-import ReLogin from 'views/user/ReLogin'
-import ForgotPassword from 'views/user/ForgotPassword'
-import ForgotPasswordConfirm from 'views/user/ForgotPasswordConfirm'
-import SetNewPassword from 'views/user/SetNewPassword'
-import RegisterResult from 'views/user/RegisterResult'
-import NotHavePermission from 'views/exception/403'
-import NoMatch from 'views/exception/404'
+const AuthLayout = React.lazy(() => import('views/user/AuthLayout'))
+const Login = React.lazy(() => import('views/user/Login'))
+const ReLogin = React.lazy(() => import('views/user/ReLogin'))
+const ForgotPassword = React.lazy(() => import('views/user/ForgotPassword'))
+const ForgotPasswordConfirm = React.lazy(() => import('views/user/ForgotPasswordConfirm'))
+const SetNewPassword = React.lazy(() => import('views/user/SetNewPassword'))
+const RegisterResult = React.lazy(() => import('views/user/RegisterResult'))
+const NotHavePermission = React.lazy(() => import('views/exception/403'))
+const NoMatch = React.lazy(() => import('views/exception/404'))
 
 export const asmeRouter: RouteObject = {
   path: '/',
-  element: <BasicLayout />,
+  element: <AppLayout />,
   loader: () => ({
     title: 'dashboard.title',
     redirect: '/dashboard/analysis',
@@ -30,12 +35,55 @@ export const asmeRouter: RouteObject = {
       }),
     },
 
-    // <Dashboard/>
+    // Dashboard
     {
       path: '/dashboard/analysis',
       element: <Dashboard />,
       loader: () => ({
         title: 'dashboard.title',
+        isDisplayMenu: true,
+      }),
+    },
+    // Candidate Management
+    {
+      path: '/candidate',
+      element: <Dashboard />,
+      loader: () => ({
+        title: 'candidate.title',
+        redirect: '/candidate-management',
+        isDisplayMenu: true,
+      }),
+    },
+    {
+      path: '/candidate-management',
+      element: <Candidate />,
+      loader: () => ({
+        title: 'candidate.title',
+        breadcrumbText: 'candidate.breadcrumbText',
+      }),
+    },
+    {
+      path: '/sa/sale-transaction/create',
+      element: <CandidateCreate />,
+      loader: () => ({
+        title: 'candidate.create.title',
+        breadcrumbText: 'candidate.create.breadcrumbText',
+      }),
+    },
+    {
+      path: '/candidate-management/:id/detail',
+      element: <CandidateDetail />,
+      loader: () => ({
+        title: 'candidate.detail.title',
+        breadcrumbText: 'candidate.detail.breadcrumbText',
+      }),
+    },
+    {
+      path: '/sa/sale-transaction/:id/edit',
+      element: <CandidateEdit />,
+      loader: () => ({
+        title: 'candidate.edit.title',
+        breadcrumbText: 'candidate.edit.breadcrumbText',
       }),
     },
   ],

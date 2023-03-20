@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import routes from '../router/commonRoutes'
 
 const dateFormat = 'DD/MM/YYYY'
 /**
@@ -139,6 +140,36 @@ const formatDay = (value: string, format: string) => {
 }
 const baseURL = process.env.REACT_APP_BASE_URL
 
+/**
+ * @use: deepFlatArray
+ * @return: Array
+ * @param arr
+ * @param key
+ */
+const deepFlatArray = (arr: Array<any>, key = 'children'): Array<any> => {
+  const result: Array<any> = []
+  recursiveDeepFlatArray(arr, key, result)
+  return result
+}
+const recursiveDeepFlatArray = (arr: Array<any>, key: string, result: any[]): void => {
+  const currentArr = [...arr]
+  console.log('currentArr', currentArr)
+  currentArr.forEach((obj) => {
+    if (obj[key] && Array.isArray(obj[key]) && obj[key].length) {
+      const el: any = { ...obj }
+      const item = { ...el }
+      delete item[key]
+      result.push(item)
+      recursiveDeepFlatArray(el[key], key, result)
+      delete el[key]
+    } else {
+      delete obj[key]
+      result.push(obj)
+    }
+  })
+  return
+}
+
 export {
   getTableRowIndex,
   handlePaginationData,
@@ -152,4 +183,5 @@ export {
   stripTags,
   formatDay,
   baseURL,
+  deepFlatArray,
 }
