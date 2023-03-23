@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import { baseURL } from 'utils/util'
 import { message } from 'antd'
-
+// eslint-disable-next-line
 let navigate: any
 
 const ContentType = {

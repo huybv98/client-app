@@ -1,5 +1,4 @@
 import dayjs from 'dayjs'
-import routes from '../router/commonRoutes'
 
 const dateFormat = 'DD/MM/YYYY'
 /**
@@ -44,6 +43,7 @@ const checkArray = (arr: string[]): boolean => {
  * @param arr
  * @returns {boolean}
  */
+// eslint-disable-next-line
 const checkArrayExist = (arr: string | Array<any>) => {
   return !!(arr && Array.isArray(arr) && arr.length)
 }
@@ -56,6 +56,7 @@ const checkArrayExist = (arr: string | Array<any>) => {
  * @return value: Tên
  */
 const getText = (
+  // eslint-disable-next-line
   arr: string | Array<any>,
   value: string,
   keyName: string,
@@ -146,16 +147,19 @@ const baseURL = process.env.REACT_APP_BASE_URL
  * @param arr
  * @param key
  */
+// eslint-disable-next-line
 const deepFlatArray = (arr: Array<any>, key = 'children'): Array<any> => {
+  // eslint-disable-next-line
   const result: Array<any> = []
   recursiveDeepFlatArray(arr, key, result)
   return result
 }
+// eslint-disable-next-line
 const recursiveDeepFlatArray = (arr: Array<any>, key: string, result: any[]): void => {
   const currentArr = [...arr]
-  console.log('currentArr', currentArr)
   currentArr.forEach((obj) => {
     if (obj[key] && Array.isArray(obj[key]) && obj[key].length) {
+      // eslint-disable-next-line
       const el: any = { ...obj }
       const item = { ...el }
       delete item[key]

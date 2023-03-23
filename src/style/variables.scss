@@ -14,3 +14,15 @@ $disable-primary: #EFF0F1;
 
 $layout-height: 48px;
 
+.color-bg-inherit {
+  background: inherit;
+  color: inherit;
+}
+.color-bg-primary {
+  background-color: $background-white!important;
+  color: $color-primary!important;
+}
+.color-bg-secondary {
+  background-color: $background-primary-hover!important;
+  color: $color-white!important;
+}

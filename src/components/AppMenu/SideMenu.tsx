@@ -1,25 +1,32 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import AppLogo from './Logo'
 import AppMenu from './Menu'
-import routes from 'router/commonRoutes'
-import { deepFlatArray } from '../../utils/util'
+import { HomeIcon, AcademicCapIcon } from '@heroicons/react/24/outline'
 
-const SideMenu: FC = () => {
-  const [menu, setMenu] = useState<Array<any>>([])
-  useEffect(() => {
-    if (menu && menu.length <= 0) {
-      const router = deepFlatArray(routes)
+interface Props {
+  visible?: boolean
+}
 
-      setMenu(router)
-      console.log('router', router)
-    }
-  }, [menu])
-  console.log('menu', menu)
+const SideMenu: FC<Props> = ({ ...props }) => {
+  const { visible } = props
+  const menu = [
+    {
+      path: '/dashboard/analysis',
+      title: 'Dashboard',
+      icon: <HomeIcon className="w-5 h-5 w-5 h-5 ant-menu-item-icon" />,
+    },
+    {
+      path: '/candidate-management',
+      title: 'Candidate',
+      icon: <AcademicCapIcon className="w-5 h-5 w-5 h-5 ant-menu-item-icon" />,
+    },
+  ]
+
   return (
     <>
       <div className="side-menu">
-        <AppLogo />
-        <AppMenu />
+        <AppLogo showTitle={!visible} />
+        <AppMenu menu={menu} />
       </div>
     </>
   )

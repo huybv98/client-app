@@ -10,21 +10,22 @@ import {
 } from '@heroicons/react/24/outline'
 
 interface Props {
-  collapsed?: boolean
+  visible?: boolean
+  onChangeVisible: (value: boolean) => void
 }
 
 const GlobalHeader: FC<Props> = ({ ...props }) => {
-  const { collapsed } = props
+  const { visible, onChangeVisible } = props
 
-  const toggle = () => {
-    console.log('111')
+  const handleClickVisible = () => {
+    onChangeVisible(!visible)
   }
 
   return (
     <>
       <div className="header flex relative px-3">
-        <div className="flex justify-center items-center w-12" onClick={toggle}>
-          {collapsed ? (
+        <div className="flex justify-center items-center w-12" onClick={handleClickVisible}>
+          {visible ? (
             <MenuUnfoldOutlined className="trigger" />
           ) : (
             <MenuFoldOutlined className="trigger" />
@@ -73,10 +74,10 @@ const GlobalHeader: FC<Props> = ({ ...props }) => {
 }
 
 GlobalHeader.propTypes = {
-  collapsed: PropTypes.bool,
+  visible: PropTypes.bool,
 }
 GlobalHeader.defaultProps = {
-  collapsed: false,
+  visible: false,
 }
 
 export default GlobalHeader

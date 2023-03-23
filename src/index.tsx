@@ -8,11 +8,9 @@ import './locales/useI18n'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <React.StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </React.StrictMode>
+  <HelmetProvider>
+    <App />
+  </HelmetProvider>
 )
 
 // If you want to start measuring performance in your app, pass a function

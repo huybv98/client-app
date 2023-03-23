@@ -15,9 +15,9 @@ const Style: React.CSSProperties = {
   color: Colors.primary,
 }
 const siderStyle: React.CSSProperties = {
-  backgroundColor: Background.white,
+  backgroundColor: Background.secondary,
   minHeight: '100vh',
-  color: 'inherit',
+  color: Colors.white,
 }
 const headerStyle: React.CSSProperties = {
   backgroundColor: Background.white,
@@ -33,17 +33,24 @@ const footerStyle: React.CSSProperties = {
 }
 
 const AppLayout = () => {
+  // eslint-disable-next-line
   const loaderData: any = useLoaderData()
   const location = useLocation()
   const navigate = useNavigate()
   const [title, setTitle] = useState<string>('')
   const { t } = useTranslation()
+  const [visible, setVisible] = useState<boolean>(false)
 
   useEffect(() => {
-    if (loaderData && loaderData.redirect && location.pathname !== loaderData.redirect) {
+    if (
+      loaderData &&
+      loaderData.redirect &&
+      location.pathname === '/' &&
+      location.pathname !== loaderData.redirect
+    ) {
       handleRedirect(loaderData.redirect)
     }
-  }, [loaderData])
+  }, [loaderData, location])
   useEffect(() => {
     if (loaderData && loaderData.title) {
       setTitle(loaderData.title)
@@ -55,18 +62,22 @@ const AppLayout = () => {
     navigate(url)
   }
 
+  const handleChangeVisible = (visible: boolean) => {
+    setVisible(visible)
+  }
+
   return (
     <div>
       <Helmet>
         <title>{t(title)}</title>
       </Helmet>
       <Layout style={Style}>
-        <Sider style={siderStyle}>
-          <SideMenu />
+        <Sider collapsed={visible} style={siderStyle}>
+          <SideMenu visible={visible} />
         </Sider>
         <Layout style={Style}>
           <Header style={headerStyle} className="p-0">
-            <GlobalHeader />
+            <GlobalHeader visible={visible} onChangeVisible={handleChangeVisible} />
           </Header>
           <Content>
             <div className="content p-4 h-screen">

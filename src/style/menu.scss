@@ -1,0 +1,18 @@
+.app-menu {
+  .ant-menu {
+    @extend .color-bg-inherit;
+    border-inline-end: unset!important;
+  }
+  .ant-menu-item {
+    margin: 4px 0 8px 0;
+    padding: 0 16px 0 24px;
+    width: auto;
+    border-radius: unset;
+    &:hover {
+      @extend .color-bg-primary
+    }
+  }
+  .ant-menu-item-selected {
+    @extend .color-bg-primary
+  }
+}

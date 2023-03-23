@@ -1,14 +1,12 @@
 .ant-btn-primary {
-  background: $background-secondary;
+  background-color: $background-secondary!important;
   &:not(:disabled):hover {
-    background: $background-primary-hover;
+    background-color: $background-primary-hover!important;
   }
 }
 .hover-app-text {
-  background: $background-white;
-  color: $color-primary;
+  @extend .color-bg-primary;
   &:hover {
-    background: $background-primary-hover;
-    color: $color-white;
+    @extend .color-bg-secondary
   }
 }

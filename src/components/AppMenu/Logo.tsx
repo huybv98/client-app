@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import PropTypes from 'prop-types'
 import GLOBAL_LIST from 'constants/globalList'
 import { useNavigate } from 'react-router-dom'
-import url from 'assets/images/logo.svg'
+import url from 'assets/images/LogoWhite.svg'
 
 interface Props {
   title?: string
@@ -19,14 +19,8 @@ const Logo: FC<Props> = ({ ...props }) => {
 
   return (
     <>
-      <div className="logo flex items-center">
-        <img
-          onClick={() => handleClick()}
-          style={{ cursor: 'pointer' }}
-          src={url}
-          alt="logo"
-          className="h-5 w-5"
-        />
+      <div className="logo flex items-center cursor-pointer" onClick={() => handleClick()}>
+        <img src={url} alt="logo" className="h-5 w-5" />
         {showTitle && (
           <>
             <h1 className="capitalize">{title}</h1>

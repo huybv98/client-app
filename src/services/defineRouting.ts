@@ -1,4 +1,4 @@
-export default {
+const defineRouting = {
   // GLOBAL LIST (CẤU HÌNH DANH MỤC DÙNG CHUNG HỆ THỐNG)
   GET_ROLES: 'roles',
   GET_GLOBAL_LIST_BY_CODE: 'global-list/getListValueByCode',
@@ -6,3 +6,4 @@ export default {
 
   // Staff
 }
+export default defineRouting

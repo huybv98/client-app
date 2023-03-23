@@ -1,7 +1,7 @@
 import { baseService } from 'utils/http/axios'
 import { AxiosResponse } from 'axios'
 import { OptionsExecute } from 'types/optionsExecute'
-
+/* eslint-disable */
 export function execute<T>(
   url: string,
   params?: Record<string, any>,
@@ -16,3 +16,4 @@ export function execute<T>(
     ...configs,
   })
 }
+/* eslint-enable */

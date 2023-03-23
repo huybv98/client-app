@@ -41,19 +41,9 @@ export const asmeRouter: RouteObject = {
       element: <Dashboard />,
       loader: () => ({
         title: 'dashboard.title',
-        isDisplayMenu: true,
       }),
     },
     // Candidate Management
-    {
-      path: '/candidate',
-      element: <Dashboard />,
-      loader: () => ({
-        title: 'candidate.title',
-        redirect: '/candidate-management',
-        isDisplayMenu: true,
-      }),
-    },
     {
       path: '/candidate-management',
       element: <Candidate />,
@@ -63,7 +53,7 @@ export const asmeRouter: RouteObject = {
       }),
     },
     {
-      path: '/sa/sale-transaction/create',
+      path: '/candidate-management/create',
       element: <CandidateCreate />,
       loader: () => ({
         title: 'candidate.create.title',
@@ -79,7 +69,7 @@ export const asmeRouter: RouteObject = {
       }),
     },
     {
-      path: '/sa/sale-transaction/:id/edit',
+      path: '/candidate-management/:id/edit',
       element: <CandidateEdit />,
       loader: () => ({
         title: 'candidate.edit.title',
