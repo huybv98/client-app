@@ -1,0 +1,24 @@
+@import './variablesHome.scss';
+
+.keyboard {
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+
+
+.item {
+}
+.enter {
+  position: absolute;
+  top: 0;
+  right: 1px;
+  height: 156px;
+}
+.background-animation {
+  animation: 2s BeProud linear infinite;
+  background: #b92b27; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #b92b27, #fdc830, #fffc00, #00f260, #2193b0, #8e2de2, #bc4e9c, #b92b27); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #b92b27, #fdc830, #fffc00, #00f260, #2193b0, #8e2de2, #bc4e9c, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+

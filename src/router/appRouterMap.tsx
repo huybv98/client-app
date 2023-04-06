@@ -17,6 +17,7 @@ const SetNewPassword = React.lazy(() => import('views/user/SetNewPassword'))
 const RegisterResult = React.lazy(() => import('views/user/RegisterResult'))
 const NotHavePermission = React.lazy(() => import('views/exception/403'))
 const NoMatch = React.lazy(() => import('views/exception/404'))
+const Home = React.lazy(() => import('views/home'))
 
 export const asmeRouter: RouteObject = {
   path: '/',
@@ -152,5 +153,9 @@ export const accountRouter: RouteObject[] = [
     loader: () => ({
       title: 'NoMatch.title',
     }),
+  },
+  {
+    path: 'Home',
+    element: <Home />,
   },
 ]
