@@ -72,21 +72,23 @@ const AppLayout = () => {
         <title>{t(title)}</title>
       </Helmet>
       <Layout style={Style}>
-        <Sider collapsed={visible} style={siderStyle}>
+        <Sider collapsed={visible} style={siderStyle} collapsedWidth={64} width={280}>
           <SideMenu visible={visible} />
         </Sider>
         <Layout style={Style}>
           <Header style={headerStyle} className="p-0">
             <GlobalHeader visible={visible} onChangeVisible={handleChangeVisible} />
           </Header>
-          <Content>
-            <div className="content p-4 h-screen">
-              <Outlet />
-            </div>
-          </Content>
-          <Footer style={footerStyle} className="p-0">
-            <GlobalFooter />
-          </Footer>
+          <div className="inner-layout">
+            <Content>
+              <div className="content p-6">
+                <Outlet />
+              </div>
+            </Content>
+            <Footer style={footerStyle} className="p-0">
+              <GlobalFooter />
+            </Footer>
+          </div>
         </Layout>
       </Layout>
     </div>

@@ -23,8 +23,8 @@ const GlobalHeader: FC<Props> = ({ ...props }) => {
 
   return (
     <>
-      <div className="header flex relative px-3">
-        <div className="flex justify-center items-center w-12" onClick={handleClickVisible}>
+      <div className="header flex relative px-6">
+        <div className="flex justify-center items-center" onClick={handleClickVisible}>
           {visible ? (
             <MenuUnfoldOutlined className="trigger" />
           ) : (

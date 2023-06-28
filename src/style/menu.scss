@@ -4,10 +4,10 @@
     border-inline-end: unset!important;
   }
   .ant-menu-item {
-    margin: 4px 0 8px 0;
-    padding: 0 16px 0 24px;
+    margin: 4px 12px 8px 12px;
+    padding: 0 10px!important;
     width: auto;
-    border-radius: unset;
+    border-radius: 8px;
     &:hover {
       @extend .color-bg-primary
     }
